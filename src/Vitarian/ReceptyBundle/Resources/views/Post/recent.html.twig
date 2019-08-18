@@ -1,0 +1,12 @@
+<table class="recentPosts">
+    <tr><th>Recent {{ string }}</th></tr>
+    <tr><td><ul>
+        {% for entity in entities %}
+                <li><a href="{{ path('post_show', {'name': entity.title}) }}">{{ entity.title [:20] }}
+                    {% if entity.title|length > 20 %}
+                        ...
+                    {% endif %}
+                    </a></li>
+        {% endfor %}     
+            </ul></td></tr>
+</table>

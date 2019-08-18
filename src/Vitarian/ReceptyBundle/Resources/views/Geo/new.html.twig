@@ -1,0 +1,43 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+
+{% block body -%}
+<h1>Marker creation</h1> 
+<div class="label label-danger">{{ form_errors(form) }}</div>
+    
+    {{ form_start(form, { 'attr': {"role":"form", "class":"form-horizontal"}}) }}
+    
+    <div class="form-group">
+        {{ form_label(form.title) }}        
+        {{ form_widget(form.title, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.description) }}        
+        {{ form_widget(form.description, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.latitude) }}        
+        {{ form_widget(form.latitude, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.longtitude) }}        
+        {{ form_widget(form.longtitude, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.type) }}        
+        {{ form_widget(form.type, { 'attr': {"class":"selectpicker"}}) }}
+    </div>
+    {{ form_widget(form.submit, { 'attr': {"class":"btn btn-default"}}) }}
+    {{ form_end(form) }}
+<a href="#" id="markOnMap">
+    Mark on the map
+</a>
+
+{% endblock %}
+{% block javascripts -%}
+ {{parent()}}
+<script>
+    markOnMap("#vitarian_receptybundle_geo_latitude","#vitarian_receptybundle_geo_longtitude");
+     
+</script>
+
+{% endblock %}

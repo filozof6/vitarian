@@ -1,0 +1,22 @@
+# post:
+#    pattern:  /
+#    defaults: { _controller: "VitarianReceptyBundle:Post:index", page: 1 }
+#post_pagin:
+#    pattern:  /{page}
+#    defaults: { _controller: "VitarianReceptyBundle:Post:index", page: 1 }
+catalog_index:
+    pattern:  /
+    defaults: { _controller: "VitarianReceptyBundle:Catalog:index" }
+catalog_show:
+    pattern:  /show/{name}
+    defaults: { _controller: "VitarianReceptyBundle:Catalog:show" }
+catalog_add:
+    pattern:  /new
+    defaults: { _controller: "VitarianReceptyBundle:Catalog:new" }
+catalog_link:
+    pattern:  /detail/{name}
+    defaults: { _controller: "VitarianReceptyBundle:Catalog:link" }
+    options:
+        expose: true
+ 
+ 

@@ -1,0 +1,13 @@
+category:
+    pattern:  /
+    defaults: { _controller: "VitarianReceptyBundle:Category:index" }
+
+category_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "VitarianReceptyBundle:Category:show" }
+category_subCats:
+    pattern:  /{id}/sub
+    defaults: { _controller: "VitarianReceptyBundle:Category:subCats" }
+
+
+

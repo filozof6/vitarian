@@ -1,0 +1,111 @@
+<?php
+
+namespace Vitarian\ReceptyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PostIngredients
+ */
+class PostIngredients
+{
+    /**
+     * @var integer
+     */
+    private $amount;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \Vitarian\ReceptyBundle\Entity\Ingredients
+     */
+    private $ingredients;
+
+    /**
+     * @var \Vitarian\ReceptyBundle\Entity\Post
+     */
+    private $post;
+
+
+    /**
+     * Set amount
+     *
+     * @param integer $amount
+     * @return PostIngredients
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return integer 
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set ingredients
+     *
+     * @param \Vitarian\ReceptyBundle\Entity\Ingredients $ingredients
+     * @return PostIngredients
+     */
+    public function setIngredients(\Vitarian\ReceptyBundle\Entity\Ingredients $ingredients = null)
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return \Vitarian\ReceptyBundle\Entity\Ingredients 
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * Set post
+     *
+     * @param \Vitarian\ReceptyBundle\Entity\Post $post
+     * @return PostIngredients
+     */
+    public function setPost(\Vitarian\ReceptyBundle\Entity\Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return \Vitarian\ReceptyBundle\Entity\Post 
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+}

@@ -1,0 +1,15 @@
+{% macro catalog(entities) %}
+{% for entity in entities %}
+    <li class="list-group-item" >
+        <a href="show/{{ entity.name }}" >{{ entity.name }}</a>  
+        {% if entity.children is not empty %}
+        <span id="catalog{{entity.id}}" class="tango go-next" >&nbsp;</span>
+            <ul class="hidden" style="margin-top: 10px">
+                {{  _self.catalog(entity.children) }}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
+{% endmacro %}
+    
+ 

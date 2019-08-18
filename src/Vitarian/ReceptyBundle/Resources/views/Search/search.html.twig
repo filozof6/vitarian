@@ -1,0 +1,21 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading -%}
+<h1>Ingredents based search</h1>
+{% endblock  -%}
+{% block search -%}
+{% endblock  -%}
+{% block body -%}
+{{ form(form) }}
+<h2>Results</h2>
+{% for entity in entities %}
+
+<div class="polozka">
+    
+    <div class="row">
+        <div class="col-xs-8"><a href="{{ path('post_show', { 'name': entity.title }) }}">{{entity.SearchName() }}</a></div>
+        <div class="col-xs-4" style="text-align:right"> <a href="{{ path('post') }}/{{ entity.category.name }}">{{entity.category.name}}</a></div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+

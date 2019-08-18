@@ -1,0 +1,10 @@
+{%  if pole is defined and pole is not empty %}
+<a href="{{ path('VitarianReceptyBundle_home') }}">Home</a>
+{% for item in pole %}
+→ <a href="{{ path('post', { name:item.name }) }}">{{ item.name }}</a>
+{% endfor %}
+{% endif %}
+
+    
+
+                   

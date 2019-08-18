@@ -1,0 +1,43 @@
+# post:
+#    pattern:  /
+#    defaults: { _controller: "VitarianReceptyBundle:Post:index", page: 1 }
+#post_pagin:
+#    pattern:  /{page}
+#    defaults: { _controller: "VitarianReceptyBundle:Post:index", page: 1 }
+post:
+    pattern:  category/{name}/{page}
+    defaults: { _controller: "VitarianReceptyBundle:Post:index", name: "Recipes", page: 1 }
+    requirements:
+        catId:  \d+
+        page:   \d+
+post_ajax:
+    pattern:  /ajax
+    defaults: { _controller: "VitarianReceptyBundle:Post:ajaxRank"  }
+   # requirements: { _method: post }
+
+post_show:
+    pattern:  /show/{name}
+    defaults: { _controller: "VitarianReceptyBundle:Post:show" }
+
+post_new:
+    pattern:  /new
+    defaults: { _controller: "VitarianReceptyBundle:Post:new" }
+
+post_create:
+    pattern:  /create
+    defaults: { _controller: "VitarianReceptyBundle:Post:create" }
+    requirements: { _method: post }
+
+post_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "VitarianReceptyBundle:Post:edit" }
+
+post_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "VitarianReceptyBundle:Post:update" }
+    requirements: { _method: post|put }
+
+post_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "VitarianReceptyBundle:Post:delete" }
+    requirements: { _method: post|delete }

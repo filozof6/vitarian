@@ -1,0 +1,45 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading %}
+<h1>Contact us</h1>
+{% endblock %}
+{% block breadcrumbs %}
+{% endblock %}
+{% block body %}
+<div class="pure-g">
+    <div class="pure-u-1">
+        <p>Do you have question about this unusual but natural life style? Write it to us. We appreciate all feedback to improve the quality of service.</p>
+    
+       
+    </div>
+   
+    <div class="pure-u-1">
+         {{ form_start(form, {'attr':{'class':'pure-form "'}}) }}
+<fieldset>
+    <div class="form-group">
+        {{ form_label(form.title) }}        
+        {{ form_widget(form.title, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.name) }}        
+        {{ form_widget(form.name, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.email) }}        
+        {{ form_widget(form.email, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.body) }}        
+        {{ form_widget(form.body, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    
+    <div class="form-group">
+            
+
+            {{ form_widget(form.send,  {'label': 'Send', 'attr': {'class': 'btn btn-default'}}) }}
+        </div>
+</fieldset>
+
+        </div>
+</div>
+{{ form_end(form) }}
+{% endblock %}

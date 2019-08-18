@@ -1,0 +1,3 @@
+vitarian_admin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: VitarianAdminBundle:Default:index }

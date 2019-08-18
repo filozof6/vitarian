@@ -1,0 +1,21 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+
+{% block breadcrumbs %}
+{% endblock %}
+{% block body %}
+<div class="jumbotron">
+<p>Welcome to the site of raw food and lifestyle. If you are beginner in this way of life I recommend you to read some <a href="{{ path('post') }}/articles">articles</a>.</p>
+</div>
+<div clas="bs-docs-section">
+    <h2> Recipes: </h2>
+    {{ render(controller('VitarianReceptyBundle:Post:imageSlider', {
+        'idCategory': 3, 'id':3
+    })) }}
+</div>
+<div class="bs-docs-section">
+    <h2> Articles: </h2>
+    {{ render(controller('VitarianReceptyBundle:Post:imageSlider', {
+        'idCategory': 4, 'id':4
+    })) }}
+</div>
+{% endblock %}

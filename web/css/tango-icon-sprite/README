@@ -1,0 +1,16 @@
+Create a CSS rule to use the sprite image as background. E.g.,
+
+span.tango {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    background-image: url("/tangoiconsprite/tango-icon-sprite/tango_icons_32x32.png");
+    background-repeat: no-repeat
+    background-position: top left;
+}
+
+Then use markup to draw an icon like so:
+
+<span class="tango go-up">&nbsp;</span>
+
+Replace "go-up" with any class defined in tango_icons.css

@@ -1,0 +1,30 @@
+newslist:
+    pattern:  /
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:index" }
+
+newslist_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:show" }
+
+newslist_new:
+    pattern:  /new
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:new" }
+
+newslist_create:
+    pattern:  /create
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:create" }
+    requirements: { _method: post }
+
+newslist_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:edit" }
+
+newslist_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:update" }
+    requirements: { _method: post|put }
+
+newslist_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "VitarianReceptyBundle:Newslist:delete" }
+    requirements: { _method: post|delete }

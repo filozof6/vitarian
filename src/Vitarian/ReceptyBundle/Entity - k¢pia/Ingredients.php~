@@ -1,0 +1,13 @@
+<?php
+
+namespace Vitarian\ReceptyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ingredients
+ */
+class Ingredients
+{
+  
+}

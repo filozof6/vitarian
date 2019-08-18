@@ -1,0 +1,83 @@
+<?php
+
+namespace Vitarian\ReceptyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtCat
+ */
+class CtCat
+{
+    /**
+     * @var integer
+     */
+    private $name;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \Vitarian\ReceptyBundle\Entity\CtCat
+     */
+    private $parent;
+
+
+    /**
+     * Set name
+     *
+     * @param integer $name
+     * @return CtCat
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return integer 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Vitarian\ReceptyBundle\Entity\CtCat $parent
+     * @return CtCat
+     */
+    public function setParent(\Vitarian\ReceptyBundle\Entity\CtCat $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Vitarian\ReceptyBundle\Entity\CtCat 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+}

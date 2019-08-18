@@ -1,0 +1,102 @@
+Vitarian\ReceptyBundle\Entity\Category:
+    properties:
+        name:
+            - NotBlank:   
+                message: Name should not be blank.
+            
+Vitarian\ReceptyBundle\Entity\Contact:
+    properties:   
+        email:
+            - NotBlank:  
+                message: Email should not be blank.  
+            - Email: 
+                message: The email "{{ value }}" is not a valid email.
+        title:
+            - NotBlank:   
+                message: Title should not be blank.  
+        name:
+            - NotBlank:   
+                message: Name should not be blank.  
+        body:
+            - NotBlank:   
+                message: Body should not be blank.  
+            
+Vitarian\ReceptyBundle\Entity\CtCat:
+    properties:
+        name:
+            - NotBlank:   
+                message: Name should not be blank.  
+         
+Vitarian\ReceptyBundle\Entity\CtLinks:
+    properties:    
+        url:
+            - Url: ~
+              
+Vitarian\ReceptyBundle\Entity\Geo:
+    properties:
+        latitude:
+            - NotBlank:   
+                message: Latitude should not be blank.  
+        longtitude:
+            - NotBlank:   
+                message: Longtitude should not be blank.  
+       
+Vitarian\ReceptyBundle\Entity\GeoType:
+    properties:
+        name:
+            - NotBlank:   
+                message: Name should not be blank  
+        description:
+            - NotBlank:   
+                message: Description should not be blank. 
+        icon:
+            - Image: ~
+       
+Vitarian\ReceptyBundle\Entity\Ingredients:
+    properties:
+        name:
+            - NotBlank:    
+                message: Name should not be blank.
+Vitarian\ReceptyBundle\Entity\Newsletter:
+    properties:
+        email:
+            - NotBlank:    
+                message: Email should not be blank.  
+            - Email: 
+                message: The email "{{ value }}" is not a valid email.
+        
+                
+Vitarian\ReceptyBundle\Entity\Newslist:
+    properties:
+        title:
+            - NotBlank: ~
+        text:
+            - NotBlank: ~
+       
+Vitarian\ReceptyBundle\Entity\Post:
+    properties:
+        body:
+            - NotBlank:    
+                message: Body should not be blank.
+        category:
+            - NotBlank:    
+                message: Category should not be blank.            
+        author:
+            - NotBlank:    
+                message: Author should not be blank.
+        photo:
+            - NotBlank:    
+                message: Photo should not be blank.
+            - Image: 
+                maxWidth: 600
+                maxHeight: 600
+        title:
+            - NotBlank: ~
+       
+Vitarian\ReceptyBundle\Entity\PostIngredients:
+    properties:
+        amount:
+            - NotBlank:    
+                message: Amount should not be blank.
+
+      

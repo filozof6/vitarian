@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Vitarian\ReceptyBundle\Entity\Post" table="post" repository-class="Vitarian\ReceptyBundle\Repository\PostRepository">
+        <indexes>
+            <index name="id_author" columns="id_author"/>
+            <index name="category" columns="category"/>
+        </indexes>
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <field name="title" type="string" column="title" length="255" nullable="false"/>
+        <field name="body" type="text" column="body" nullable="false"/>
+        <field name="published" type="datetime" column="published" nullable="false"/>
+        <field name="liked" type="integer" column="liked" nullable="true"/>
+        <field name="disliked" type="integer" column="disliked" nullable="true"/>
+        <field name="photo" type="string" column="photo" length="255" nullable="false"/>
+        <many-to-one field="category" target-entity="Vitarian\ReceptyBundle\Entity\Category" inversed-by="posts">
+            <join-columns>
+                <join-column name="category" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="author" target-entity="Application\Sonata\UserBundle\Entity\User">
+            <join-columns>
+                <join-column name="id_author" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <one-to-many field="ingredients" target-entity="Vitarian\ReceptyBundle\Entity\PostIngredients" mapped-by="post">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+        </one-to-many>
+    </entity>
+</doctrine-mapping>

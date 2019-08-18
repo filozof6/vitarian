@@ -1,0 +1,37 @@
+vitarian_recepty_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: VitarianReceptyBundle:Default:index }
+VitarianReceptyBundle_post:
+    resource: "@VitarianReceptyBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+VitarianReceptyBundle_catalog:
+    resource: "@VitarianReceptyBundle/Resources/config/routing/catalog.yml"
+    prefix:   /catalog
+VitarianReceptyBundle_aboutus:
+    pattern:  /aboutus
+    defaults: { _controller: VitarianReceptyBundle:Aboutus:index }
+VitarianReceptyBundle_home:
+    pattern:  /
+    defaults: { _controller: VitarianReceptyBundle:Home:index }
+VitarianReceptyBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: VitarianReceptyBundle:Contact:index }
+VitarianReceptyBundle_contactsucces:
+    pattern:  /contact/succes
+    defaults: { _controller: VitarianReceptyBundle:Contact:succes }
+VitarianReceptyBundle_newsletter:
+    resource: "@VitarianReceptyBundle/Resources/config/routing/newsletter.yml"
+    prefix:   /newsletter
+VitarianReceptyBundle_category:
+    resource: "@VitarianReceptyBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+VitarianReceptyBundle_user:
+        resource: "@VitarianReceptyBundle/Resources/config/routing/user.yml"
+        prefix:   /user
+VitarianReceptyBundle_geo:
+    resource: "@VitarianReceptyBundle/Resources/config/routing/geo.yml"
+    prefix:   /geo
+VitarianReceptyBundle_search:
+    resource: "@VitarianReceptyBundle/Resources/config/routing/search.yml"
+    prefix:   /search
+    

@@ -1,0 +1,227 @@
+body {
+    background-image: url("../images/bg.png");
+    Font-Family: “Georgia”, serif;
+    padding-top:50px;margin:0;
+}
+textarea {
+     width:95%;
+     min-height: 300;
+     resize: user;
+
+}
+.nicEdit-main{
+     background-color: white;
+     width:100%;
+     min-height: 300;
+     resize: user;
+}
+#body {
+    padding-left: 10px;
+    padding-right:1px;
+}
+#breadCrumbs {
+    padding-left: 10px;
+}
+#content {
+  
+ /*   width:80%;
+*/}
+#copyright {
+    text-align: center;
+    clear:both;
+}
+#body_wrapper {
+    background: -webkit-linear-gradient(red, blue); 
+    background: -o-linear-gradient(red, blue); 
+    background: -moz-linear-gradient(red, blue); 
+    background: linear-gradient(white, #e0c1e0); 
+}
+#footer {
+    padding-top:5px;
+    border:1px dotted silver;
+    border-top-style: double;
+    background: linear-gradient(white,#b266b2);
+    //background-color:#b266b2  ;
+    clear:both;
+    margin:0px;
+    margin-right:auto;margin-left:auto;
+    border-radius: 0 0 50px 50px;
+    
+   
+    
+}
+
+/*#fside div{
+    display:inline-block;
+    margin:0;
+    float:left;
+    
+   
+}
+#fside_left{
+    text-align: center;
+    width:200px;
+}
+#fside_right{
+    width:200px;
+   
+}*/
+#fside_center{
+   text-align:center;
+   padding-top:10px;
+   
+}
+#header {
+    background-color: white;
+    padding-left: 10px;
+     background-image: url("../images/strawberries.jpg");
+    background-repeat:no-repeat;
+    background-position:right top;
+    border:1px dotted silver;
+    border-radius: 0px 0px 20px 20px;;
+    min-height: 115px;
+    font-size:500%;
+    text-shadow: 5px 5px 5px silver;
+    color:#003366;
+}
+#heading {
+   padding-left:5px; 
+}
+
+#menu {
+    max-height: 30px;
+    
+    padding:0;
+}
+#menu {
+    width:100%;
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+#ulmenu li {
+    
+    display:inline-block;
+    
+    margin:0 10px 0 10px;
+}
+#ulmenu ul {
+    display: block;
+    position:absolute;
+    
+}
+#ulmenu ul li {
+
+    border:1px solid silver;
+    width:100px;
+    position:relative;
+    right:50px;
+    y-index:9; 
+    background-color: white;
+    
+    
+}
+#ulmenu ul li:hover {
+    background-color: #ffeeee;
+    
+}
+#overview {
+    text-align: center;
+    float:right;
+  
+}
+#rank div{
+    float:right;
+    vertical-align: baseline;
+}
+#rank .frame{
+    float:right;
+    border-radius:5px;
+    background-color: red;
+    height:10px;
+    width:100px;
+    margin: 0px 10px 0px 10px;
+    
+}
+#rank .slider{
+    border-radius:5px 0px 0px 5px;
+    background-color: green;
+    float:left;
+    height:10px;
+}
+#side {
+  /*  text-align: center;
+    border-bottom:1px dotted silver;
+    border-left:1px dotted silver;
+    width:20%;
+  
+    margin-top:50px;*/
+  // float:right;
+}
+img.thumb{
+    border:1px solid black;
+    float:left;
+    width:150px;
+    height:100px;
+    margin-right: 10px;
+}
+.polozka {
+    margin:5px;
+}
+.polozka:hover {
+    margin:5px;
+    background-color: #FaFaFa   ;
+}
+.recentPosts {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.recentPosts th{
+    border-bottom: 1px dotted silver;
+}
+.recentPosts td{
+    padding-top:0px;
+    
+}
+.recentPosts ul{
+    margin-top:0px;
+    list-style-type:none;
+    padding:0px;
+    
+}
+
+
+/* .list styling for unordered list */
+.list {
+    list-style-type: none;
+    padding:0px;
+    margin-top: 10px;
+     border: 1px solid purple;
+     width:90%;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 2px;
+    
+}
+.list li {
+    border-bottom:  1px solid silver;
+}
+.listhead {
+    border: 0px solid purple;
+    background-color: #f9d9f9;
+    
+    font-weight: bold;
+}
+.list li a {
+    display: block;
+    text-decoration: none;
+}
+.list li a:hover {
+    display: block;
+    text-decoration:underline;
+}
+.list li a:visited {
+   color:blue;
+}
+/* end of .list */

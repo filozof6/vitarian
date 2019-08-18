@@ -1,0 +1,13 @@
+<div id="newsletter">
+    <h4>Newsletter creation</h4>
+    <p>Subscribe and get the most delicious recipes on your email.</p>
+    
+    {{ form_start(form, {'attr':{'role':'form'}}) }}
+    {{ form_errors(form) }}
+    {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email) }}
+    {{ form_widget(form.submit,  {'label': 'Submit', 'attr': {'class': 'btn btn-default'}}) }}
+    {{ form_end(form) }}
+</div>
+

@@ -1,0 +1,10 @@
+<div style="clear:both">
+    <div style="float:right;margin-left:30px;">{% if entity.published %}{{ entity.published|date('Y-m-d H:i:s') }}{% endif %}</div>
+    <div id="rank" hidden>
+        <div class="dislikes" title="-" id="{{ entity.id }}">Dislikes</div>
+        <div class="frame"  style="float:right;"><div class="slider" style="width:30px;"></div></div>
+        <div class="likes" title="+"  id="{{ entity.id }}">Likes</div>
+        <div style="clear:both"></div>
+    </div>
+</div>
+<hr style="clear:both">

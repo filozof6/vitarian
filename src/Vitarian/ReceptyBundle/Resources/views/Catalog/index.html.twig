@@ -1,0 +1,63 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading -%}
+<h1>Links catalog</h1>
+{% endblock  -%}
+
+{% block body -%}
+{# table body 
+{% for entity in entities %}
+<div class="polozka">
+    <div class="container">
+        <h3><a href="{{ path('catalog_index') }}">{{ entity.name }}</a> <span id="catalog{{entity.id}}" class="tango go-next">&nbsp;</span></h3> 
+    </div>
+</div>
+{% endfor %}#}
+<div class="row">
+    <div class="col-xs-9">
+        <a href="{{ path('catalog_add') }}">
+            Add Link
+        </a>
+    </div>
+    <div class="col-xs-3" style="text-align:right">
+        <a href="#" id="openAll">Open all</a> | <a href="#" id="closeAll">Close all</a>
+    </div>
+</div>
+<hr/>
+
+<ul id="catalog" class="list-group">
+    {% import "VitarianReceptyBundle:Helpers:catalog.html.twig" as macros %}
+   {{ macros.catalog(entities)}}
+</ul>
+    {% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script language="javascript" type="text/javascript">
+    // zobrazenie podkategorií
+    $(document).ready(function() {
+        $("#catalog span").click(function() {
+            console.log($(this).next("ul"));
+            // pokial je zoznam pod ním skrytý
+            $(this).next("ul").toggleClass("hidden")
+            if ($(this).next("ul").hasClass("hidden")) {
+
+                $(this).removeClass("go-down");
+                $(this).addClass("go-next");
+            } else {
+                $(this).removeClass("go-next");
+                $(this).addClass("go-down");
+            }
+        });
+        // otvor a zatvor všetky
+        $("#openAll").click(function() {
+            $("#catalog span~ul").removeClass("hidden");
+            $("#catalog span").removeClass("go-next");
+            $("#catalog span").addClass("go-down");
+        });
+        $("#closeAll").click(function() {
+            $("#catalog span~ul").addClass("hidden");
+            $("#catalog span").removeClass("go-down");
+            $("#catalog span").addClass("go-next");
+        });
+    });
+</script>
+{% endblock %}

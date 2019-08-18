@@ -1,0 +1,62 @@
+{# tento subor je zastarany vsetok skript som premiestil do markOnMap.js #}
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+
+{% block body -%}
+<a href="#" id="markOnMap">
+    Mark on the map
+</a>
+{% endblock %}
+{% block others -%}
+<div id="dialog"  title="Mark on the map" style="width:800px;height:500px;z-index: 9999;"><div id="map-canvas" style="width:450px; height:300px;"></div></div>
+
+{% endblock %}
+{% block javascripts -%}
+ {{parent()}}
+
+
+<!-- google maps API settings -->
+<script>
+    function markOnMap(idLat, idLong) {
+     
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 500,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+        $("#markOnMap").click(function() {
+            console.log("click");
+            $("#dialog").dialog("open");
+            initialize(idLat, idLong);
+            document.onload = loadScript;
+        });
+    }
+    function initialize(idLat, idLong) {
+        var mapOptions = {
+            zoom: 2,
+            center: new google.maps.LatLng(20, 30)
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+        google.maps.event.addListener(map, 'click', function(event) {
+            console.log(event.latLng);
+            if (confirm("Mark this place?")) {
+                $(idLat).val(event.latLng.lat());
+                $(idLong).val(event.latLng.lng());
+                $("#dialog").dialog("close");
+            }
+
+        });
+
+
+    }
+
+</script>
+
+{% endblock %}

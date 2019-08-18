@@ -1,0 +1,16 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading -%}
+<h1>Website search</h1>
+{% endblock %}
+
+{% block body -%}
+    {% for entity in entitities %}
+        <div><a href="{{ path() }}">{{entity.searchName}} </a>{{ entity.searchCategory }}</div>
+    {% endfor %}
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script>
+
+</script>
+{% endblock %}

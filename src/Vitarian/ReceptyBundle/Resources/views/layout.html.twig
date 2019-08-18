@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block main -%}
+
+<div class="row-fluid">
+    <div class="col-md-9 bs-docs-container">
+
+        <div id="heading">{% block heading %}{% endblock %}</div>
+        <div id="breadCrumbs">{% block breadcrumbs %}{% endblock %}</div>
+        <div id="body">
+                        {% block body %}body{% endblock %}
+
+        </div>
+    </div>
+
+
+    <div  class="col-md-3 bs-docs-sidebar" >
+
+        <div  class="hidden-print bs-docs-sidebar " >
+            {% block side %}&nbsp;{% endblock %}
+            {% block search %} {{ render(controller('VitarianReceptyBundle:Search:searchForm')) }} {% endblock %}
+            {% block newsletter %}{{ render(controller('VitarianReceptyBundle:Newsletter:new')) }}{% endblock %}
+            {% block ads %}&nbsp;{% endblock %}
+        </div >
+    </div>
+
+</div>
+{% endblock %}

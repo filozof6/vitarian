@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Vitarian\ReceptyBundle\Entity\PostIngredients" table="post_ingredients">
+    <indexes>
+      <index name="post_id" columns="post_id"/>
+      <index name="ingredients_id" columns="ingredients_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="amount" type="integer" column="amount" nullable="false"/>
+    <many-to-one field="ingredient" target-entity="Ingredients">
+      <join-columns>
+        <join-column name="ingredient_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="post" target-entity="Post"  inversed-by="ingredients">
+      <join-columns>
+        <join-column name="post_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

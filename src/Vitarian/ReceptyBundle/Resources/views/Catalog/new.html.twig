@@ -1,0 +1,102 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+
+{% block body -%}
+<h1>Link creation</h1>
+<div class="label label-danger">{{ form_errors(form) }}</div>
+ {{ form_start(form, { 'attr': {"role":"form", "class":"form-horizontal"}}) }}
+<div class="form-group">
+        {{ form_label(form.name) }}        
+        {{ form_widget(form.name, { 'attr': {"class":"form-control"}}) }}
+</div>
+<div class="form-group">
+        {{ form_label(form.description) }}        
+        {{ form_widget(form.description, { 'attr': {"class":"form-control"}}) }}
+</div>
+<div class="form-group">
+        {{ form_label(form.url) }}        
+        {{ form_widget(form.url, { 'attr': {"class":"form-control"}}) }}
+        <p class="help-block">
+            Example: <q>http://www.example.com</q>
+    </p>
+</div>
+<div class="form-group">
+        {{ form_label(form.category) }}        
+        {{ form_widget(form.category, { 'attr': {"class":"selectpicker"}}) }}
+</div>
+<a href="#" id="location">Add map location</a><br />
+<div style="display:none" id="geo_form">
+    <div class="form-group">
+        {{ form_label(form.geo.latitude) }}        
+        {{ form_widget(form.geo.latitude, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.geo.longtitude) }}        
+        {{ form_widget(form.geo.longtitude, { 'attr': {"class":"form-control"}}) }}
+    </div>
+    <p class="help-block">
+        If you dont know the coordinates u can <a href="#" id="markOnMap">mark it on the map</a>.
+    </p>
+</div>
+{{ form_widget(form.submit, { 'attr': {"class":"btn btn-default"}}) }}
+{{ form_end(form) }}
+<hr/>
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('catalog_index') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+<div id="dialog"  title="Mark on the map" style="width:800px;height:500px;z-index: 9999;"><div id="map-canvas" style="width:450px; height:300px;"></div></div>
+
+{% endblock %}
+{% block javascripts -%}
+ {{parent()}}
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<!-- google maps API settings -->
+<script>
+    // tento kusok kodu sluzi pre skryvanie a odokryvanie geo formu pre lokaciu na mape (link v katalogu može ale nemusí mať geo lokaciu)
+    $("#location").click(function() {
+        if ($("#geo_form").is(":visible")) {
+            $("#location").text("Add map location")
+            $("#geo_form input").val("");
+            $("#geo_form").hide();
+        } else {
+            $("#geo_form").show();
+            $("#location").text("Remove map location")
+        }
+    });
+    markOnMap("#vitarian_receptybundle_ctlinks_geo_latitude", "#vitarian_receptybundle_ctlinks_geo_longtitude");
+    /* function initialize() {
+     var mapOptions = {
+     zoom: 2,
+     center: new google.maps.LatLng(20, 30)
+     };
+     var map = new google.maps.Map(document.getElementById('map-canvas'),
+     mapOptions);
+     google.maps.event.addListener(map, 'click', function(event) {
+     console.log(event.latLng);
+     if (confirm("Mark this place?")) {
+     $("#vitarian_receptybundle_ctlinks_geo_latitude").val(event.latLng.lat());
+     $("#vitarian_receptybundle_ctlinks_geo_longtitude").val(event.latLng.lng());
+     $( "#dialog" ).dialog( "close" );
+     }
+     
+     });
+     
+     
+     } 
+     /*  function loadScript() {
+     var script = document.createElement('script');
+     script.type = 'text/javascript';
+     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+     'callback=initialize';
+     document.body.appendChild(script);
+     }
+     
+     document.onload = loadScript;*/
+</script>
+
+{% endblock %}

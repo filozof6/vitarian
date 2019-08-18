@@ -1,0 +1,85 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading -%}
+    <h1>{{ entity.title }}</h1>
+{% endblock %}
+{% block breadcrumbs -%}
+    {{ render(controller('VitarianReceptyBundle:Category:breadCrumbs', {
+        'entity': entity.category
+    })) }}
+    <hr />
+{% endblock  -%}
+{% block side %}
+
+    {{ parent() }}
+{% endblock %}
+{% block body -%}
+    <div  id="overview">
+        <img src="{{ asset('images/posts/'~entity.photo) }}" class="img-responsive" />
+    </div>
+    <section>
+        <!-- ingredients list -->
+        {% if entity.category.categoryType=="recipes" %}
+            <h1>Ingredients</h1>
+            <ul id="ingredients">
+                {% for ingred in entity.ingredients %}
+                    <li>{{ingred.name}} {{ ingred.amount }}g</li>
+                    {% endfor %}
+            </ul>
+        {% endif %} 
+    <hr />
+    </section>
+    <section>
+        <p id="text">
+            {{ entity.body }}
+        </p>
+    </section>
+    {{ include ('VitarianReceptyBundle:Post:rank.html.twig', {"entity" : entity}) }}
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('post') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('post_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+
+        // skript pre vytiahnutie ingrediencií z API nutritionix
+
+        $("#ingredients li").click(function() {
+            var settings = {
+                "appId": "cf1db6b3",
+                "appKey": "97ac0352d625848ffcf8acfe8fbcf7ba",
+                "query": $(this).html(),
+                "fields": ["item_name", "brand_name", "nf_calories", "nf_serving_size_qty", "nf_serving_size_unit", "nf_total_fat", "nf_protein", "nf_sugars", "nf_dietary_fiber"],
+                //  "limit":1,
+                "sort": {
+                    "field": "_score",
+                    "order": "desc"
+                },
+                "filters": {
+                    "item_type": 3
+                }
+            };
+            console.log(settings);
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "https://api.nutritionix.com/v1_1/search",
+                data: settings
+            })
+                    .done(function(msg) {
+                        console.log(msg);
+                    });
+        });
+    </script>
+{% endblock %}

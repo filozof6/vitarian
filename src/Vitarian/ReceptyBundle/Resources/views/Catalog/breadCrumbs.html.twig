@@ -1,0 +1,11 @@
+{%  if pole is defined and pole is not empty %}
+<a href="{{ path('catalog_index') }}">Home</a>
+{% for item in pole %}
+→ <a href="{{ path('catalog_show', { name:item.name }) }}">{{ item.name }}</a>
+{% endfor %}
+{% endif %}
+<hr />
+
+    
+
+                   

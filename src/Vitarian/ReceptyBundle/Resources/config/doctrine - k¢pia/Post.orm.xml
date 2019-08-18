@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Vitarian\ReceptyBundle\Entity\Post" table="post">
+    <indexes>
+      <index name="id_author" columns="id_author" nullable="true"/>
+      <index name="category" columns="category"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="body" type="text" column="body" nullable="false"/>
+    <field name="published" type="datetime" column="published" nullable="false"/>
+    <field name="like" type="integer" column="liked" nullable="true"/>
+    <field name="dislike" type="integer" column="disliked" nullable="true"/>
+    <field name="photo" type="string" column="photo" nullable="false"/>
+    <many-to-one field="idAuthor" target-entity="User" >
+      <join-columns>
+        <join-column name="id_author" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="category" target-entity="Category" >
+      <join-columns>
+        <join-column name="category" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+     <many-to-many field="ingredients" target-entity="Ingredients">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-table name="post_ingredients">
+                <join-columns>
+                    <join-column name="post_id" referenced-column-name="id" nullable="false" unique="false" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="ingredients_id" referenced-column-name="id" column-definition="INT NULL" />
+                </inverse-join-columns>
+            </join-table>
+            <many-to-many field="ingredients" target-entity="Ingredients">
+            <join-table name="post_ingredients">
+                <join-columns>
+                    <join-column id="ingredients_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column id="post_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+     </many-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,76 @@
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA01BAGrwp6Lg6Kc9G0nmI11mstY5umy10&sensor=true">
+</script>
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="{{ asset('js/jQueryPlugins.js') }}"></script>
+<script src="{{ asset('js/functions.js') }}"></script>
+<script src="{{ asset('js/selectize.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
+<script src="{{ asset('js/geo.js') }}"></script>
+<script src="{{ asset('js/search.js') }}"></script>
+<script src="{{ asset('js/showOnMap.js') }}"></script>
+<script src="{{ asset('js/geo/locate.js') }}"></script>
+<script src="{{ asset('js/markOnMap.js') }}"></script>
+<!-- Bootstrap Latest compiled and minified JavaScript -->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+<script src="{{ asset('js/flexisel.js') }}"></script>
+<script language="javascript" type="text/javascript">
+   $(document).on("live ready click",function(){
+      // toto je bootstrapova funkcia 
+     $('.selectpicker').selectpicker(); 
+   });
+$(document).ready(function(){
+     
+    // SLIDER pre recepty /home
+    $("#flexisel3").flexisel({
+        visibleItems: 3,
+        animationSpeed: 1000,
+        autoPlay: true,
+        autoPlaySpeed: 3000,            
+        pauseOnHover: true,
+        enableResponsiveBreakpoints: true,
+        responsiveBreakpoints: { 
+            portrait: { 
+                changePoint:480,
+                visibleItems: 1
+            }, 
+            landscape: { 
+                changePoint:640,
+                visibleItems: 2
+            },
+            tablet: { 
+                changePoint:768,
+                visibleItems: 3
+            }
+        }
+    });
+    //SLIDER pre články /home
+    $("#flexisel4").flexisel({
+        visibleItems: 3,
+        animationSpeed: 1000,
+        autoPlay: true,
+        autoPlaySpeed: 3000,            
+        pauseOnHover: true,
+        enableResponsiveBreakpoints: true,
+        responsiveBreakpoints: { 
+            portrait: { 
+                changePoint:480,
+                visibleItems: 1
+            }, 
+            landscape: { 
+                changePoint:640,
+                visibleItems: 2
+            },
+            tablet: { 
+                changePoint:768,
+                visibleItems: 3
+            }
+        }
+    });
+    
+});
+</script>

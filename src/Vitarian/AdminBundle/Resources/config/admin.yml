@@ -1,0 +1,89 @@
+services:
+    vitarian_recepty.admin.post:
+            class: Vitarian\AdminBundle\Admin\PostAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Posts }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Post
+                - 'VitarianAdminBundle:PostAdmin'
+    vitarian_recepty.admin.category:
+            class: Vitarian\AdminBundle\Admin\CategoryAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Categories }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Category
+                - 'VitarianAdminBundle:CategoryAdmin'
+    vitarian_recepty.admin.contact:
+            class: Vitarian\AdminBundle\Admin\ContactAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Contacts }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Contact
+                - 'VitarianAdminBundle:ContactAdmin'
+    vitarian_recepty.admin.ctcat:
+            class: Vitarian\AdminBundle\Admin\CtCatAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: CtCats }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\CtCat
+                - 'VitarianAdminBundle:CtCatAdmin'
+    vitarian_recepty.admin.ctlinks:
+            class: Vitarian\AdminBundle\Admin\CtLinksAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: CtLinks }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\CtLinks
+                - 'VitarianAdminBundle:CtLinksAdmin'
+    vitarian_recepty.admin.geo:
+            class: Vitarian\AdminBundle\Admin\GeoAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Geos }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Geo
+                - 'VitarianAdminBundle:GeoAdmin'
+    vitarian_recepty.admin.geotype:
+            class: Vitarian\AdminBundle\Admin\GeoTypeAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Geo Types }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\GeoType
+                - 'VitarianAdminBundle:GeoTypeAdmin'
+    vitarian_recepty.admin.ingredients:
+            class: Vitarian\AdminBundle\Admin\IngredientsAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Ingredients }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Ingredients
+                - 'VitarianAdminBundle:IngredientsAdmin'
+    vitarian_recepty.admin.newsletter:
+            class: Vitarian\AdminBundle\Admin\NewsletterAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Newsletter }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Newsletter
+                - 'VitarianAdminBundle:NewsletterAdmin'
+    vitarian_recepty.admin.newslist:
+            class: Vitarian\AdminBundle\Admin\NewslistAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: Newslist }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\Newslist
+                - 'VitarianAdminBundle:NewslistAdmin'
+    vitarian_recepty.admin.postingredients:
+            class: Vitarian\AdminBundle\Admin\PostIngredientsAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Vitarian, label: PostIngredients }
+            arguments:
+                - ~
+                - Vitarian\ReceptyBundle\Entity\PostIngredients
+                - 'VitarianAdminBundle:PostIngredientsAdmin'

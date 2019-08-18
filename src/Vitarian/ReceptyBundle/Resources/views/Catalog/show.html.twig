@@ -1,0 +1,50 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading -%}
+<h1>{{ ctCat.name }}</h1>
+{% endblock %}
+{% block breadcrumbs -%}
+{% render(controller('VitarianReceptyBundle:Catalog:breadCrumbs', {
+        'entity': ctCat
+    })) %}
+{% endblock  -%}
+
+{% block side -%}
+{% if ctCat.children is not empty %}
+{{ render(controller('VitarianReceptyBundle:Category:subCats', {
+         'entity': ctCat, 'url':'catalog_show'
+    })) }}
+{% endif %}
+{{ parent() }}
+{% endblock %}
+
+{% block body -%}
+{% if ctCat.links is not empty %}
+{% for link in ctCat.links %}
+<div class="polozka">
+    <div style="margin-bottom:5px;display:inline;" >
+        <a href="{{link.url}}">{{ link.name }}</a>
+{% if link.geo is not empty %}
+        &nbsp;
+        <a href="#{# path("geo_show",  {'id': link.geo.id}) #}" class="showOnMap" id="{{link.geo.id}}"><span class="tango internet-web-browser" ></span></a>   
+{% endif %}
+    </div>
+    <p id="text" style="margin-top:10px;">
+        {{ link.description }}
+    </p>
+    <hr />
+</div>
+{% endfor%}
+{% else %}
+No links in this category so far. <a href="{{ path('catalog_add') }}">Do you want to add some?</a>
+{% endif %}
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script>
+
+
+</script>
+{% endblock %}
+{% block others %}
+<!--<div id="dialog"  title="Show on the map" style="width:800px;height:500px;z-index: 9999;"><div id="map-canvas" style="width:450px; height:300px;"></div></div>
+-->{% endblock %}

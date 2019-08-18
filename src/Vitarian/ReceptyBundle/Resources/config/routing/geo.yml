@@ -1,0 +1,27 @@
+geo_index:
+    pattern:  /
+    defaults: { _controller: "VitarianReceptyBundle:Geo:index" }
+geo_locations:
+    pattern:  /locations
+    defaults: { _controller: VitarianReceptyBundle:Geo:locations }
+    options:
+        expose: true
+geo_json:
+    pattern:  /getJSONGeo
+    defaults: { _controller: VitarianReceptyBundle:Geo:getJSONGeo }
+    options:
+        expose: true
+geo_close_markers_json:
+    pattern:  /getJsonCloseMarkers
+    defaults: { _controller: VitarianReceptyBundle:Geo:getJsonCloseMarkers }
+    options:
+        expose: true
+geo_new:
+    pattern:  /new
+    defaults: { _controller: "VitarianReceptyBundle:Geo:new" }
+geo_show:
+    pattern:  /show/{name}
+    defaults: { _controller: "VitarianReceptyBundle:Geo:show" }
+geo_locate:
+    pattern:  /locate
+    defaults: { _controller: "VitarianReceptyBundle:Geo:locate" }

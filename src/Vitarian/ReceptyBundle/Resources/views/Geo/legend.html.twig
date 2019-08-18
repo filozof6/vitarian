@@ -1,0 +1,8 @@
+<h4>Legend</h4>
+<ul id="legend">
+    {% for entity in entities %}
+    <li><img src="{{asset("images/markers")}}/{{entity.icon}}" alt="{{entity.name}}" />
+        <a href="{{ path("geo_show", {"name":entity.name})}}" title="{{entity.description}}">{{entity.name}}</a>
+    </li>
+    {% endfor %}
+</ul>

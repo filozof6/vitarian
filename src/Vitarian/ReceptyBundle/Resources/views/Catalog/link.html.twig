@@ -1,0 +1,30 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+{% block heading -%}
+<h1>{{ ctLink.name }}</h1>
+{% endblock %}
+{% block breadcrumbs -%}
+{% render(controller('VitarianReceptyBundle:Catalog:breadCrumbs', {
+        'entity': ctLink.category
+    })) %}
+{% endblock  -%}
+
+{% block body -%}
+<a href="{{ ctLink.url }}" target="_blank">{{ ctLink.url }}</a><br />
+{{ ctLink.description }}<br />
+{% if ctLink.author is not null %}
+Author: {{ ctLink.author.username }}
+{% endif %}
+
+
+
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script>
+
+
+</script>
+{% endblock %}
+{% block others %}
+<!--<div id="dialog"  title="Show on the map" style="width:800px;height:500px;z-index: 9999;"><div id="map-canvas" style="width:450px; height:300px;"></div></div>
+-->{% endblock %}

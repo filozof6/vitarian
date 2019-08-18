@@ -1,0 +1,12 @@
+search_index:
+    pattern:  /
+    defaults: { _controller: "VitarianReceptyBundle:Search:index" }
+search_search:
+    pattern:  /show
+    defaults: { _controller: VitarianReceptyBundle:Search:search }
+
+search_results:
+    pattern:  /results
+    defaults: { _controller: "VitarianReceptyBundle:Search:results" }
+    options:
+        expose: true

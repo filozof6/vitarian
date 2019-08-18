@@ -1,0 +1,13 @@
+{%  if subCats is defined and subCats is not empty %}
+
+<ul class="list">
+    <li class="listhead">Sub categories</li>
+{% for item in subCats %}
+    <li><a href="{{ path(  (url) , { 'name' : item.name }) }}">{{ item.name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+    
+
+                   

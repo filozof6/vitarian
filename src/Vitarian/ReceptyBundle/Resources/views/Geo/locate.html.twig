@@ -1,0 +1,88 @@
+{% extends 'VitarianReceptyBundle::layout.html.twig' %}
+
+{% block body -%}
+<h1>Geo Location</h1> 
+<div id="locate-info"></div>
+<div id="map-canvas"></div>
+
+{% endblock %}
+{% block javascripts -%}
+ {{parent()}}
+<script>
+    var infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
+    // @param branches Array of JSON marker entities
+    function setMarkers(branches, map) {
+        // načita sa json pole s markermi
+        var marker = null;
+
+        for (var i = 0; i < branches.length; i++) {
+            var branch = branches[i];
+            var myLatlngMarker = new google.maps.LatLng(branch.latitude, branch.longtitude);
+            // pripravy obrazok ak je (GeoType)
+            var img=null;
+            if (branch.type) { 
+                img = "{{ asset("images/markers/") }}"+branch.type.icon;
+                console.log(img);
+            }
+
+            var marker = new google.maps.Marker({
+                position: myLatlngMarker,
+                map: map,
+                title: branch.title,
+                icon: img,
+            });
+            // spracovanie textu popisu ak má marker odkaz aj na ctLink
+            // ak je img null jedná sa o odkaz na ctLink
+            //var scrap = branch.title;
+            if (img==null) var scrap = "<a href='"+Routing.generate('catalog_link',{name:branch.title})+"'>"+branch.title+"</a>";
+            else var scrap = branch.title;
+            console.log(scrap);
+            bindInfoWindow(marker, map, infowindow, '<h1 id="firstHeading" class="firstHeading">' + scrap + '</h1>' + branch.description);
+        }
+    }
+    
+    function showPosition(position) {
+        var x = document.getElementById("locate-info");
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        latlon = new google.maps.LatLng(lat, lon)
+        mapholder = document.getElementById('map-canvas')
+        mapholder.style.height = '250px';
+        mapholder.style.width = '500px';
+
+        var myOptions = {
+            center: latlon, zoom: 7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL}
+        }
+        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        var marker = new google.maps.Marker({
+            position: latlon,
+            map: map,
+            title: "You are here!",
+            icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+        });
+        
+        $.ajax({  
+          type: "POST",  
+          url: Routing.generate('geo_close_markers_json'),
+          data: "latitude="+lat+"&longtitude="+lon,
+          success: function(result) {  
+              console.log(JSON.parse(result));
+            setMarkers(JSON.parse(result),map); 
+          }  
+        });  
+        
+    }
+    
+    getLocation(showPosition);
+
+</script>
+
+{% endblock %}

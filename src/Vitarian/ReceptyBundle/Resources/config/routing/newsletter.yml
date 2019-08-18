@@ -1,0 +1,30 @@
+newsletter:
+    pattern:  /
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:index" }
+
+newsletter_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:show" }
+
+newsletter_new:
+    pattern:  /new
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:new" }
+
+newsletter_create:
+    pattern:  /create
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:create" }
+    requirements: { _method: post }
+
+newsletter_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:edit" }
+
+newsletter_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:update" }
+    requirements: { _method: post|put }
+
+newsletter_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "VitarianReceptyBundle:Newsletter:delete" }
+    requirements: { _method: post|delete }
